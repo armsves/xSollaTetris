@@ -431,22 +431,24 @@ export default function WelcomeScreen({ onStart, isOpen }: WelcomeScreenProps) {
         )}
       >
         {/* Wallet Connect Section - Top Right */}
-        <div className="absolute top-3 right-3 z-50 flex flex-col items-end gap-2">
-          <ConnectButton 
-            showBalance={false}
-            chainStatus="icon"
-            accountStatus="avatar"
-          />
+        <div className="absolute top-3 right-3 z-[100] flex flex-col items-end gap-2 pointer-events-auto">
+          <div className="relative z-[100] pointer-events-auto">
+            <ConnectButton 
+              showBalance={false}
+              chainStatus="icon"
+              accountStatus="avatar"
+            />
+          </div>
           
           {/* Wallet Status Indicator */}
           {isClient && !walletDetected && installedWallets.length === 0 && (
-            <div className="flex items-center gap-1 text-xs text-muted-foreground bg-background/80 backdrop-blur px-2 py-1 rounded border">
+            <div className="flex items-center gap-1 text-xs text-muted-foreground bg-background/80 backdrop-blur px-2 py-1 rounded border pointer-events-auto">
               <AlertCircle className="size-3" />
               <span>No wallet detected</span>
               <Button
                 variant="link"
                 size="sm"
-                className="h-auto p-0 text-xs"
+                className="h-auto p-0 text-xs pointer-events-auto"
                 onClick={() => window.open(getMetaMaskDownloadUrl(), '_blank')}
               >
                 <ExternalLink className="size-3" />
@@ -455,7 +457,7 @@ export default function WelcomeScreen({ onStart, isOpen }: WelcomeScreenProps) {
           )}
           
           {isClient && !walletDetected && installedWallets.length > 0 && (
-            <div className="flex items-center gap-1 text-xs text-blue-600 bg-background/80 backdrop-blur px-2 py-1 rounded border">
+            <div className="flex items-center gap-1 text-xs text-blue-600 bg-background/80 backdrop-blur px-2 py-1 rounded border pointer-events-auto">
               <span>Wallets: {installedWallets.join(', ')}</span>
             </div>
           )}

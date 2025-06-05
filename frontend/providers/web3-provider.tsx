@@ -118,6 +118,10 @@ export function Web3Provider({ children }: Web3ProviderProps) {
                         coolMode={true}
                         modalSize="compact"
                         initialChain={xsollaSepolia}
+                        appInfo={{
+                            appName: 'XSollaTetris',
+                            learnMoreUrl: 'https://example.com',
+                        }}
                     >
                         {children}
                     </RainbowKitProvider>

@@ -87,4 +87,54 @@ body {
     width: 90vw !important;
     max-width: 32rem !important;
   }
+
+  /* Ensure RainbowKit modals appear above everything else */
+  [data-rk] {
+    z-index: 9999 !important;
+  }
+  
+  /* RainbowKit modal overlay - ensure it's above all other content */
+  [data-rk] > div[style*="position: fixed"] {
+    z-index: 9999 !important;
+  }
+  
+  /* RainbowKit modal content - highest priority */
+  [data-rk] [role="dialog"] {
+    z-index: 10000 !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Ensure RainbowKit connect button is always clickable */
+  button[data-rk] {
+    z-index: 100 !important;
+    pointer-events: auto !important;
+    position: relative !important;
+  }
+  
+  /* RainbowKit backdrop/overlay styling */
+  [data-rk] div[style*="backdrop-filter"] {
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Make sure all RainbowKit elements have proper pointer events */
+  [data-rk] * {
+    pointer-events: auto !important;
+  }
+  
+  /* Fix for RainbowKit modal positioning over other dialogs */
+  [data-rk] [style*="position: fixed"][style*="inset: 0"] {
+    z-index: 9999 !important;
+  }
+  
+  /* Ensure RainbowKit modal content is always on top */
+  [data-rk] [style*="transform: translate"][role="dialog"] {
+    z-index: 10001 !important;
+  }
+  
+  /* Make ConnectButton always clickable even when in dialogs */
+  [data-rk] button {
+    z-index: 200 !important;
+    pointer-events: auto !important;
+  }
 }
